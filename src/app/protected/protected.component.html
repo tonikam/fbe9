@@ -1,0 +1,14 @@
+<label for="incident">Incident</label>
+<input type="text" id="incident" #incident>
+<label for="activity">Activity</label>
+<input type="text" id="activity" #activity>
+<button (click)="onSubmit(incident.value, activity.value)">Submit</button>
+<hr>
+<p>{{asyncString | async}}</p>
+<hr>
+<button (click)="onGetData()">Get Data</button>
+<br><br>
+<ul>
+    <li *ngFor="let item of items">{{item.incident}} - - {{item.activity}}</li>
+</ul>
+<hr>

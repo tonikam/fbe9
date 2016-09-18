@@ -21,9 +21,9 @@ export class AuthService {
     firebase.auth().signInWithEmailAndPassword(user.email, user.password)
       .catch(function (error) {
         console.log(error);
-      });
+       });
       this.router.navigate(['/protected']);
-  }
+    }
 
   logout() {
     firebase.auth().signOut();

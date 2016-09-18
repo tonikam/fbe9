@@ -10,18 +10,17 @@ export class HttpService {
   }
 
   getData() {
-    return this.http.get('https://fbe2-3e917.firebaseio.com/title.json')
-      .map((response: Response) => response.json());
+    return this.http.get('https://fbe2-3e917.firebaseio.com/title.json').map((response: Response) => response.json());
   }
 
   sendData(incident: any) {
     const body = JSON.stringify(incident);
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    //return this.http.post('https://fbe2-3e917.firebaseio.com/structure1/structure2/data.json', body, {
+    return this.http.post('https://fbe2-3e917.firebaseio.com/structure1/structure2/data.json', body, {
     //return this.http.put('https://fbe2-3e917.firebaseio.com/structure1/data.json', body, {
-    var test = ["bla","blubb","gaga"];
-    return this.http.put('https://fbe2-3e917.firebaseio.com/structure1/data.json', test, {
+    //var test = ["bla","blubb","gaga"];
+    //return this.http.put('https://fbe2-3e917.firebaseio.com/structure1/data.json', test, {
       headers: headers
     })
       .map((data: Response) => data.json())

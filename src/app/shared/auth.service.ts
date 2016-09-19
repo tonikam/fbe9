@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { User } from "./user.interface";
 import { Router } from "@angular/router";
 
-declare var firebase: any;
+declare let firebase: any;
 
 @Injectable()
 export class AuthService {
@@ -22,7 +22,7 @@ export class AuthService {
       .catch(function (error) {
         console.log(error);
        });
-      this.router.navigate(['/protected']);
+      this.router.navigate(['/diseaseCase']);
     }
 
   logout() {

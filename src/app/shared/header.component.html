@@ -3,11 +3,10 @@
         <div class="container-fluid">
 
             <ul class="nav navbar-nav">
-
+                <li><a [routerLink]="['home']">Home</a></li>
                 <li><a [routerLink]="['signup']">Sign Up</a></li>
                 <li><a [routerLink]="['signin']">Sign In</a></li>
-                <li><a [routerLink]="['protected']">Protected</a></li>
-
+                <li><a [routerLink]="['diseaseCase']">Case</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" *ngIf="isAuth()">
 

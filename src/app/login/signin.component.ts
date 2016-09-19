@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../shared/auth.service";
 
 @Component({
-    templateUrl: './signin.component.html',
+    templateUrl: './signin.component.html'
 })
 export class SigninComponent implements OnInit {
     myForm: FormGroup;

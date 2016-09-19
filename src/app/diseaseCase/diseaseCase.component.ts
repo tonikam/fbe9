@@ -1,12 +1,12 @@
 import { Component } from "@angular/core";
 
-import { HttpService } from "./http.service";
+import { HttpService } from "../shared/http.service";
 
 @Component({
-    templateUrl: './protected.component.html',
+    templateUrl: './diseaseCase.component.html',
     providers: [HttpService]
 })
-export class ProtectedComponent {
+export class DiseaseCaseComponent {
     items: any[] = [];
     asyncString = this.httpService.getData();
 
@@ -18,11 +18,27 @@ export class ProtectedComponent {
                 data => console.log(data),
                 error => console.log(error)
             );
-				this.onGetData();
     }
 
     onGetData() {
         this.httpService.getOwnData()
+            .subscribe(
+                data => {
+                    const myArray = [];
+                    for (let key in data) {
+                        myArray.push(data[key]);
+                    }
+                    this.items = myArray;
+                }
+            );
+    }
+
+    onSetData2() {
+        this.httpService.setOwnData2();
+    }
+
+    onGetData2() {
+        this.httpService.getOwnData2()
             .subscribe(
                 data => {
                     const myArray = [];

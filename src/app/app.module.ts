@@ -1,30 +1,47 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
+
+// for angular2 with webpack!
+import * as firebase from "firebase";
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+
 import { HttpModule } from '@angular/http';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent }   from './app.component';
-import { HeaderComponent } from "./shared/header.component";
-import { SigninComponent } from "./unprotected/signin.component";
-import { SignupComponent } from "./unprotected/signup.component";
-import { ProtectedComponent } from "./protected/protected.component";
 
 import { AuthGuard } from "./shared/auth.guard";
 import { AuthService } from "./shared/auth.service";
 
 import { routing } from "./app.routing";
 
-import {CoreModule} from "./core-module";
+import { CoreModule } from "./core-module";
+import { LoginModule } from "./login/login.module";
+import { DiseaseCaseModule } from "./diseaseCase/diseaseCase.module";
+
+import { HeaderComponent } from "./shared/header.component";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDLxXLtFAWXtOrD9mtSmLGb9uWHlOGH9SQ",
+    authDomain: "fbe2-3e917.firebaseapp.com",
+    databaseURL: "https://fbe2-3e917.firebaseio.com",
+    storageBucket: "fbe2-3e917.appspot.com",
+    messagingSenderId: "75684927389"
+};
 
 @NgModule({
     declarations: [
         AppComponent,
-        HeaderComponent,
-        SigninComponent,
-        SignupComponent,
-        ProtectedComponent
+        HeaderComponent
     ],
-    imports: [BrowserModule, HttpModule, routing, ReactiveFormsModule, CoreModule],
+    imports: [
+        BrowserModule,
+        //AngularFireModule.initializeApp(firebaseConfig),
+        HttpModule,
+        routing,
+        CoreModule,
+        LoginModule,
+        DiseaseCaseModule
+    ],
     providers: [
         AuthGuard,
         AuthService

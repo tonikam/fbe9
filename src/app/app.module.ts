@@ -3,7 +3,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 
 // for angular2 with webpack!
 import * as firebase from "firebase";
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule, AuthProviders, AuthMethods, AngularFire } from 'angularfire2';
 
 import { HttpModule } from '@angular/http';
 
@@ -35,7 +35,7 @@ const firebaseConfig = {
     ],
     imports: [
         BrowserModule,
-        //AngularFireModule.initializeApp(firebaseConfig),
+        AngularFireModule.initializeApp(firebaseConfig),
         HttpModule,
         routing,
         CoreModule,

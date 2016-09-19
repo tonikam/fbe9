@@ -39,15 +39,11 @@ export class DiseaseCaseComponent {
 
     onGetData2() {
         this.httpService.getOwnData2()
-            .subscribe(
-                data => {
-                    const myArray = [];
-                    for (let key in data) {
-                        myArray.push(data[key]);
-                    }
-                    this.items = myArray;
-                }
-            );
+        .subscribe(
+            x => console.log('onNext: %s', x),
+            e => console.log('onError: %s', e),
+            () => console.log('onCompleted')
+        );
     }
 
 }

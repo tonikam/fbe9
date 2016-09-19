@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 
+// no use of angularfire2
 // for angular2 with webpack!
-import * as firebase from "firebase";
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+//import * as firebase from "firebase";
+//import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { HttpModule } from '@angular/http';
 
@@ -20,13 +21,17 @@ import { DiseaseCaseModule } from "./diseaseCase/diseaseCase.module";
 
 import { HeaderComponent } from "./shared/header.component";
 
-const firebaseConfig = {
+declare let firebase: any;
+
+/* no use of angularfire2
+export const firebaseConfig = {
     apiKey: "AIzaSyDLxXLtFAWXtOrD9mtSmLGb9uWHlOGH9SQ",
     authDomain: "fbe2-3e917.firebaseapp.com",
     databaseURL: "https://fbe2-3e917.firebaseio.com",
     storageBucket: "fbe2-3e917.appspot.com",
     messagingSenderId: "75684927389"
 };
+*/
 
 @NgModule({
     declarations: [
@@ -35,6 +40,7 @@ const firebaseConfig = {
     ],
     imports: [
         BrowserModule,
+        // no use of angularfire2
         //AngularFireModule.initializeApp(firebaseConfig),
         HttpModule,
         routing,
